@@ -15,7 +15,7 @@
 # docker node inspect u2 --pretty
 
 # deploy
-docker stack deploy -c docker-compose.yml jext
+docker stack deploy -c docker-compose.yml starter
 
 docker node ls
 docker stack ls

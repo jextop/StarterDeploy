@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker stack rm jext
+docker stack rm starter
 
 docker node ls
 docker stack ls
