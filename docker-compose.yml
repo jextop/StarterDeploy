@@ -1,0 +1,72 @@
+version: '3'
+services:    
+    db:
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/mysql:5
+        hostname: db
+        command: --default-authentication-plugin=mysql_native_password
+        # volumes:
+        #     - ./data/mysql/data:/var/lib/mysql
+        #     - ./data/mysql/conf:/etc/mysql/conf.d
+        #     - ./data/mysql/initdb:/docker-entrypoint-initdb.d
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node.labels.group == db]
+        ports:
+            - 3306:3306
+        environment:
+           MYSQL_DATABASE: starter
+           MYSQL_ROOT_PASSWORD: root
+
+    cache:
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/redis:4
+        hostname: cache
+        command: redis-server --appendonly yes
+        # volumes:
+        #     - ./data/redis:/data
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node.labels.group == db]
+        ports:
+            - 6379:6379
+
+    mq:
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/activemq:latest
+        hostname: mq
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node.labels.group == db]
+        ports:
+            - 61616:61616
+            - 8161:8161
+
+    api:
+        image: registry.cn-shanghai.aliyuncs.com/jext/starter_api:latest
+        hostname: api
+        command: ./launch.sh
+        # volumes:
+        #     - ./data/file:/tmp/file
+        deploy:
+            replicas: 1
+            placement:
+                constraints: [node.role == manager]
+        ports:
+            - 8011:8011
+        depends_on:
+            - db
+            - cache
+            - mq
+
+    # admin:
+    #     image: registry.cn-shanghai.aliyuncs.com/jext/admin:latest
+    #     command: ./launch.sh
+    #     ports:
+    #         - 8010:8010
+    #     deploy:
+    #         replicas: 1
+    #         placement:
+    #             constraints: [node.role == manager]
+    #     depends_on:
+    #         - api
