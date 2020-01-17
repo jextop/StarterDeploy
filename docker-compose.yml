@@ -63,7 +63,7 @@ services:
     admin:
         image: registry.cn-shanghai.aliyuncs.com/jext/starter_admin:latest
         hostname: admin
-        command: ./launch.sh
+        # command: ./launch.sh
         ports:
             - 8010:8010
         deploy:
