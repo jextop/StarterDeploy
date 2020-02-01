@@ -42,6 +42,14 @@ services:
             - 61616:61616
             - 8161:8161
 
+    elasticsearch:
+        hostname: elasticsearch
+        image: elasticsearch:latest
+        restart: always
+        ports:
+            - 9200:9200
+            - 9300:9300
+
     log:
         hostname: log
         image: registry.cn-shanghai.aliyuncs.com/hellodock/logstash:7.5.2
@@ -52,6 +60,8 @@ services:
         ports:
             - 9600:9600
             - 9601:9601
+        depends_on:
+            - elasticsearch
 
     db_admin:
         image: adminer:latest
