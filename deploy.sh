@@ -22,6 +22,5 @@ docker stack ls
 docker service ls
 docker ps
 
-# docker logs jext_web_1 -f
-# docker exec -it jext_cache_1 bash -c "redis-cli -h cache -p 6379"
-# docker exec -it jext_web_1 bash
+# docker logs starter_api.1 -f
+# docker exec -it starter_api.1 bash

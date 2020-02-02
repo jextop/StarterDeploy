@@ -7,4 +7,5 @@
 docker-compose up -d
 docker-compose ps
 
-# docker exec -it jext_api_1 bash
+# docker logs starterdeploy_api_1 -f
+# docker exec -it starterdeploy_api_1 bash

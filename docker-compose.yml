@@ -45,7 +45,10 @@ services:
     elasticsearch:
         hostname: elasticsearch
         image: elasticsearch:latest
-        restart: always
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.labels.group == api]
         ports:
             - 9200:9200
             - 9300:9300
@@ -75,9 +78,7 @@ services:
             - db
 
     api:
-        hostname: api
         image: registry.cn-shanghai.aliyuncs.com/jext/starter_api:latest
-        restart: always
         # volumes:
         #     - ./data/file:/tmp/file
         deploy:
@@ -94,11 +95,11 @@ services:
 
     admin:
         image: registry.cn-shanghai.aliyuncs.com/jext/starter_admin:latest
-        ports:
-            - 8010:8010
         deploy:
             replicas: 1
             # placement:
             #     constraints: [node.role == api]
+        ports:
+            - 8010:8010
         depends_on:
             - api
