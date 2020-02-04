@@ -4,7 +4,7 @@
 # ./login.sh
 
 # img:tag repo:tag namespace server
-set base_admin:latest base_admin:latest hellodock registry.cn-shanghai.aliyuncs.com
+set base_admin:latest starter_admin_base:latest jext registry.cn-shanghai.aliyuncs.com
 
 # workaround on windows: prefix command with winpty
 # docker login --username=xxx $4

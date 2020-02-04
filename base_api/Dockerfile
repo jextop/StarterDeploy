@@ -6,4 +6,4 @@ WORKDIR /code
 RUN apt update
 RUN apt -y install maven
 
-CMD ["mvn", "-v"]
+RUN mvn -v
