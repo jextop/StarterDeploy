@@ -1,0 +1,8 @@
+version: '3'
+services:
+    base_api:
+        image: base_api:latest
+        build: .
+        restart: always
+        ports:
+            - "80:80"

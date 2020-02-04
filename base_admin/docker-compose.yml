@@ -1,0 +1,8 @@
+version: '3'
+services:
+    base_admin:
+        image: base_admin:latest
+        build: .
+        restart: always
+        ports:
+            - "80:80"
