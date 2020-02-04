@@ -7,7 +7,11 @@ RUN apt update
 RUN apt -y install npm
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+# install node:8
+RUN npm install -g n 8.16.2 --force
+
 RUN cnpm -v
+RUN node -v
 
 WORKDIR /etc/nginx
 
