@@ -55,7 +55,7 @@ services:
 
     log:
         hostname: log
-        image: registry.cn-shanghai.aliyuncs.com/hellodock/logstash:7.5.2
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/logstash:latest
         deploy:
             replicas: 1
             # placement:
@@ -63,6 +63,17 @@ services:
         ports:
             - 9600:9600
             - 9601:9601
+        depends_on:
+            - elasticsearch
+
+    kibana:
+        image: registry.cn-shanghai.aliyuncs.com/hellodock/kibana:latest
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.labels.group == api]
+        ports:
+            - 5601:5601
         depends_on:
             - elasticsearch
 
