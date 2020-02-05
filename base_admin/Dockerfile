@@ -3,12 +3,12 @@ FROM nginx:latest
 WORKDIR /code
 
 # install npm
-RUN apt update
-RUN apt -y install npm
-RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-RUN cnpm -v
-RUN node -v
+RUN apt update; \
+	apt -y install npm; \
+	npm install -g cnpm --registry=https://registry.npm.taobao.org; \
+	\
+	cnpm -v; \
+	node -v
 
 WORKDIR /etc/nginx
 
