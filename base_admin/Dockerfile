@@ -1,5 +1,7 @@
 FROM nginx:latest
 
+LABEL maintainer="Jext Community, https://github.com/jextop"
+
 WORKDIR /code
 
 # install npm
