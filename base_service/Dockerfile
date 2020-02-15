@@ -9,7 +9,7 @@ COPY ./requirements.txt /code/
 WORKDIR /code
 
 # install
-RUN chmod +x *.sh && ./install.sh
+RUN sh install.sh
 
 # Downgrade tornado from 6 to 5 to fix error: 
 # ATTRIBUTEERROR: MODULE 'TORNADO.WEB' HAS NO ATTRIBUTE 'ASYNCHRONOUS'
