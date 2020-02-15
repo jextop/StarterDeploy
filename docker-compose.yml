@@ -11,7 +11,7 @@ services:
         deploy:
             replicas: 1
             # placement:
-            #     constraints: [node.labels.group == db]
+            #     constraints: [node.labels.group == data]
         ports:
             - 3306:3306
         environment:
@@ -23,7 +23,7 @@ services:
         deploy:
             replicas: 1
             # placement:
-            #     constraints: [node.labels.group == db]
+            #     constraints: [node.labels.group == data]
         ports:
             - 3006:8080
         depends_on:
@@ -36,7 +36,7 @@ services:
         deploy:
             replicas: 1
             # placement:
-            #     constraints: [node.labels.group == db]
+            #     constraints: [node.labels.group == data]
         ports:
             - 6379:6379
 
@@ -46,7 +46,7 @@ services:
         deploy:
             replicas: 1
             # placement:
-            #     constraints: [node.labels.group == db]
+            #     constraints: [node.labels.group == data]
         ports:
             - 61616:61616
             - 61613:61613
@@ -147,3 +147,49 @@ services:
             - 8010:8010
         depends_on:
             - api
+
+    srv:
+        image: registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.role == srv]
+        ports:
+            - 8001:8001
+        depends_on:
+          - cache
+          - mq
+
+    mq_consumer:
+        image: registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest
+        command: python manage.py mq
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.role == srv]
+        depends_on:
+            - cache
+            - mq
+
+    task:
+        image: registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest
+        command: celery -A starter_service worker -l info
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.role == srv]
+        depends_on:
+            - cache
+            - mq
+
+    task_viewer:
+        image: registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest
+        command: celery flower --broker=redis://cache:6379/2
+        deploy:
+            replicas: 1
+            # placement:
+            #     constraints: [node.role == srv]
+        ports:
+            - 5555:5555
+        depends_on:
+            - task
