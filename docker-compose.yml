@@ -33,8 +33,6 @@ services:
         hostname: cache
         image: redis:4
         command: redis-server --appendonly yes
-        # volumes:
-        #     - ./data/redis:/data
         deploy:
             replicas: 1
             # placement:
@@ -51,6 +49,7 @@ services:
             #     constraints: [node.labels.group == db]
         ports:
             - 61616:61616
+            - 61613:61613
             - 8161:8161
 
     elasticsearch:
