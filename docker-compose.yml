@@ -124,7 +124,7 @@ services:
         hostname: api
         image: registry.cn-shanghai.aliyuncs.com/jext/starter_api:latest
         # volumes:
-        #     - ./data/file:/tmp/file
+        #     - ./data/files:/tmp/files
         deploy:
             replicas: 1
             # placement:
