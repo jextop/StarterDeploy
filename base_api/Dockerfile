@@ -9,5 +9,7 @@ WORKDIR /code
 # package to trigger mvn download dependencies
 RUN sh mvnw package -Dmaven.test.skip=true
 
+WORKDIR /
+
 # delete code
 RUN rm -rf /code
