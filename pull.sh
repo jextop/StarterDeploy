@@ -14,5 +14,5 @@ docker pull registry.cn-shanghai.aliyuncs.com/hellodock/alertmanager:latest
 docker pull registry.cn-shanghai.aliyuncs.com/hellodock/prometheus:latest
 
 docker pull registry.cn-shanghai.aliyuncs.com/jext/starter_api:latest
-docker pull registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest
 docker pull registry.cn-shanghai.aliyuncs.com/jext/starter_admin:latest
+docker pull registry.cn-shanghai.aliyuncs.com/jext/starter_service:latest

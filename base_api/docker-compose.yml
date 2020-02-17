@@ -1,0 +1,5 @@
+version: '3'
+services:
+    base_api:
+        image: base_api:latest
+        build: .
