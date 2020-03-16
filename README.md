@@ -2,8 +2,8 @@
 使用Docker一键部署
 
 # 安装Docker
-https://docs.docker.com/install/linux/docker-ce/ubuntu/
-https://docs.docker.com/docker-for-windows/install/
+- https://docs.docker.com/install/linux/docker-ce/ubuntu/
+- https://docs.docker.com/docker-for-windows/install/
 
 # 拉取镜像
 ./pull.sh
@@ -41,3 +41,5 @@ https://docs.docker.com/docker-for-windows/install/
 | Kibana Status    | http://localhost:5601/status            | |
 | 任务调度Celery Flower | http://localhost:5555               | |
 | 异步任务服务检查  | http://localhost:8001/chk               | |
+
+![](https://github.com/jextop/StarterAdmin/blob/master/Admin.png)
