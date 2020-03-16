@@ -42,4 +42,4 @@
 | 任务调度Celery Flower | http://localhost:5555               | |
 | 异步任务服务检查  | http://localhost:8001/chk               | |
 
-![](https://github.com/jextop/StarterAdmin/blob/master/Admin.png)
+![](https://github.com/jextop/StarterAdmin/blob/master/starter.png)
