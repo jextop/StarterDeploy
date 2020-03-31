@@ -1,21 +1,24 @@
 # Web服务脚手架部署运行
 使用Docker一键部署
 
-# 安装Docker
+# 一键部署
+## 安装Docker
 - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 - https://docs.docker.com/docker-for-windows/install/
 
-# 拉取镜像
+## 拉取镜像
 ./pull.sh
 
-# 启动服务
+## 启动服务
 ./up.sh
 
-# 查看日志
+## 查看日志
 ./logs.sh
 
-# 停止服务
+## 停止服务
 ./down.sh
+
+# 服务信息
 
 | 运行环境          | URL:Port                                |  备注              |
 | ------------     | --------------------------------------  | :----------------- |
@@ -42,4 +45,16 @@
 | 任务调度Celery Flower | http://localhost:5555               | |
 | 异步任务服务检查  | http://localhost:8001/chk               | |
 
-![](https://github.com/jextop/StarterAdmin/blob/master/starter.png)
+
+# 产品原型
+## 后台管理系统
+![](https://github.com/jextop/StarterDeploy/blob/master/img/admin.png)
+
+## aiChat智能语音聊天机器人
+![](https://github.com/jextop/StarterDeploy/blob/master/img/aiChat.png)
+
+## 代驾定位系统
+![](https://github.com/jextop/StarterDeploy/blob/master/img/track.png)
+
+## 中央厨房订单管理系统
+![](https://github.com/jextop/StarterDeploy/blob/master/img/kitchen.png)
