@@ -1,7 +1,6 @@
 # Web服务脚手架部署运行
 使用Docker一键部署
 
-# 一键部署
 ## 安装Docker
 - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 - https://docs.docker.com/docker-for-windows/install/

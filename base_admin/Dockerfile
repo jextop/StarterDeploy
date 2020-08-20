@@ -9,6 +9,9 @@ WORKDIR /code
 
 # install npm
 RUN apt update; \
+	apt -y install git; \
+	git --version; \
+	\
 	apt -y install npm; \
 	npm install -g cnpm --registry=https://registry.npm.taobao.org; \
 	\
