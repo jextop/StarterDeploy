@@ -14,7 +14,7 @@ RUN apt update; \
 	\
 	sh mvnw package -Dmaven.test.skip=true; \
     \
-    cd ..; \
+    cd /; \
     rm -rf /code; \
     ls -al
 
