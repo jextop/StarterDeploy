@@ -8,8 +8,12 @@ COPY ./requirements.txt /code/
 
 WORKDIR /code
 
-# install
-RUN sh install.sh
+# install git and requirements
+RUN apt update; \
+	apt -y install git; \
+	git --version; \
+	\
+	sh install.sh
 
 # Downgrade tornado from 6 to 5 to fix error: 
 # ATTRIBUTEERROR: MODULE 'TORNADO.WEB' HAS NO ATTRIBUTE 'ASYNCHRONOUS'

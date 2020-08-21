@@ -7,7 +7,7 @@ COPY ./package.json /code/
 
 WORKDIR /code
 
-# install npm
+# install git, npm and yarn
 RUN apt update; \
 	apt -y install git; \
 	git --version; \
