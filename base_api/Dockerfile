@@ -15,7 +15,6 @@ RUN apt update; \
 	sh mvnw package -Dmaven.test.skip=true; \
     \
     cd /; \
-    rm -rf /code; \
-    ls -al
+    rm -rf /code
 
 WORKDIR /

@@ -22,9 +22,7 @@ RUN apt update; \
 	cnpm install -g yarn; \
 	yarn --version; \
 	yarn config set registry https://registry.npm.taobao.org -g; \
-	yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g; \
-    \
-    ls -al
+	yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
 
 WORKDIR /etc/nginx
 
