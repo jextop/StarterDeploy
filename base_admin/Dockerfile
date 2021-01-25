@@ -26,4 +26,7 @@ RUN apt update; \
 
 WORKDIR /etc/nginx
 
+# 关闭日志
+COPY ./nginx.conf ./
+
 EXPOSE 80
